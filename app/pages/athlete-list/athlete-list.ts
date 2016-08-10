@@ -9,7 +9,7 @@ import {AthleteDetailsPage} from '../athlete-details/athlete-details';
 export class AthleteListPage {
   selectedItem: any;
   icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  items: Object[];
 
   constructor(public navCtrl: NavController, navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
@@ -18,15 +18,41 @@ export class AthleteListPage {
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
     'american-football', 'boat', 'bluetooth', 'build'];
 
-    this.items = [];
-    for(let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+this.items = [{
+        "details": {
+            "name": "Stuart Byrne",
+            "gender": "Male",
+            "dob": "04-11-1976",
+            "weight": "80kg",
+            "height": "178cm"
+        }
+    }, {
+        "sports": [{
+            "name": "Soccer",
+            "relationship": "parent",
+            "experience": [{
+                "grade": "Professional"
+            }]
+        }, {
+            "name": "Running",
+            "relationship": "child",
+            "experience": [{
+                "grade": "Amateur"
+            }]
+        }, {
+            "name": "Golf",
+            "relationship": "child",
+            "experience": [{
+                "grade": "Amateur"
+            }]
+        }]
+  }];
+      
+      console.log(this.items);
+    
   }
+    
+    
 
   itemTapped(event, item) {
     this.navCtrl.push(AthleteDetailsPage, {
