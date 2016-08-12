@@ -19,34 +19,37 @@ export class AthleteListPage {
     'american-football', 'boat', 'bluetooth', 'build'];
 
 this.items = [{
-        "details": {
+            "type": "Profile",
             "name": "Stuart Byrne",
             "gender": "Male",
             "dob": "04-11-1976",
             "weight": "80kg",
             "height": "178cm"
-        }
-    }, {
-        "sports": [{
+        }, 
+        {
+            "type": "Sport",
             "name": "Soccer",
             "relationship": "parent",
             "experience": [{
                 "grade": "Professional"
             }]
-        }, {
+        }, 
+        {
+            "type": "Sport",
             "name": "Running",
             "relationship": "child",
             "experience": [{
                 "grade": "Amateur"
             }]
-        }, {
+        }, 
+        {
+            "type": "Sport",
             "name": "Golf",
             "relationship": "child",
             "experience": [{
                 "grade": "Amateur"
             }]
-        }]
-  }];
+        }];
       
       console.log(this.items);
     
