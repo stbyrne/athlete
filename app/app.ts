@@ -2,6 +2,8 @@ import {Component, ViewChild} from '@angular/core';
 import {ionicBootstrap, Platform, MenuController, Nav} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {HelloAthletePage} from './pages/hello-athlete/hello-athlete';
+import {ProfilePage} from './pages/profile/profile';
+import {ProfileDetailPage} from './pages/profile-detail/profile-detail';
 import {AthleteListPage} from './pages/athlete-list/athlete-list';
 import {Http, Response} from '@angular/http';
 
@@ -14,7 +16,7 @@ class MyApp {
 
   // make HelloAthletePage the root (or first) page
   rootPage: any = HelloAthletePage;
-  pages: Array<{title: string, component: any}>;
+pages: Array<{title: string, icon: string, component: any}>;
   
 
   constructor(
@@ -27,8 +29,9 @@ class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Athlete', component: HelloAthletePage },
-      { title: 'Athlete Details', component: AthleteListPage }
+      { title: 'Athlete Home', icon: 'home', component: HelloAthletePage },
+      { title: 'Profile', icon: 'contact', component: ProfilePage },
+      { title: 'Athlete Details', icon: 'body', component: AthleteListPage }
     ];
     
     this.http.get('../app/athlete.json')

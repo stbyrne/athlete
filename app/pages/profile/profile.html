@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    
+    <ion-list>
+    <button ion-item *ngFor="let detail of profile" (click)="itemTapped($event, detail)">
+      <ion-icon name="contact"></ion-icon>
+      {{detail.name}}
+      <div class="item-note" item-right>
+        {{detail.note}}
+      </div>
+    </button>
+  </ion-list>
+
+</ion-content>
