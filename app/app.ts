@@ -4,7 +4,7 @@ import {StatusBar} from 'ionic-native';
 import {HelloAthletePage} from './pages/hello-athlete/hello-athlete';
 import {ProfilePage} from './pages/profile/profile';
 import {ProfileDetailPage} from './pages/profile-detail/profile-detail';
-import {AthleteListPage} from './pages/athlete-list/athlete-list';
+import {AthleteSportsPage} from './pages/athlete-sports/athlete-sports';
 import {Http, Response} from '@angular/http';
 
 
@@ -31,11 +31,11 @@ pages: Array<{title: string, icon: string, component: any}>;
     this.pages = [
       { title: 'Athlete Home', icon: 'home', component: HelloAthletePage },
       { title: 'Profile', icon: 'contact', component: ProfilePage },
-      { title: 'Athlete Details', icon: 'body', component: AthleteListPage }
+      { title: 'Athlete Sports', icon: 'body', component: AthleteSportsPage }
     ];
     
-    this.http.get('../app/athlete.json')
-    //.map((res) => res.json())
+    t/*his.http.get('https://googledrive.com/host/0B0778NZ3pAKKUnBxVWxLN0JtYTA')
+    .map((res) => res.json())
     .subscribe((data) => {
         
         console.log(data);
@@ -43,7 +43,7 @@ pages: Array<{title: string, icon: string, component: any}>;
     }, (error) => {
         
         console.log('Error!');
-    });
+    });*/
   }
 
   initializeApp() {

@@ -4,9 +4,9 @@ import {AthleteDetailsPage} from '../athlete-details/athlete-details';
 
 
 @Component({
-  templateUrl: 'build/pages/athlete-list/athlete-list.html'
+  templateUrl: 'build/pages/athlete-sports/athlete-sports.html'
 })
-export class AthleteListPage {
+export class AthleteSportsPage {
   selectedItem: any;
   icons: string[];
   sports: Object[];
