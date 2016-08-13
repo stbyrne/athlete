@@ -9,7 +9,7 @@ import {AthleteDetailsPage} from '../athlete-details/athlete-details';
 export class AthleteListPage {
   selectedItem: any;
   icons: string[];
-  items: Object[];
+  sports: Object[];
 
   constructor(public navCtrl: NavController, navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
@@ -18,42 +18,30 @@ export class AthleteListPage {
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
     'american-football', 'boat', 'bluetooth', 'build'];
 
-this.items = [{
-            "type": "Profile",
-            "name": "Stuart Byrne",
-            "gender": "Male",
-            "dob": "04-11-1976",
-            "weight": "80kg",
-            "height": "178cm"
-        }, 
-        {
-            "type": "Sport",
-            "name": "Soccer",
-            "relationship": "parent",
-            "experience": [{
-                "grade": "Professional"
-            }]
-        }, 
-        {
-            "type": "Sport",
-            "name": "Running",
-            "relationship": "child",
-            "experience": [{
-                "grade": "Amateur"
-            }]
-        }, 
-        {
-            "type": "Sport",
-            "name": "Golf",
-            "relationship": "child",
-            "experience": [{
-                "grade": "Amateur"
-            }]
-        }];
-      
-      console.log(this.items);
-    
-  }
+    this.sports = [
+        
+            {
+                "type": "Sport",
+                "name": "Soccer",
+                "relationship": "parent",
+                "experience": "Professional"
+            }, 
+            {
+                "type": "Sport",
+                "name": "Running",
+                "relationship": "child",
+                "experience": "Amateur"
+            }, 
+            {
+                "type": "Sport",
+                "name": "Golf",
+                "relationship": "child",
+                "experience": "Amateur"
+            }];
+
+          console.log(this.sports);
+
+    }
     
     
 
