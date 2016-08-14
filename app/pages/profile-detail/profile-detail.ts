@@ -18,11 +18,17 @@ export class ProfileDetailPage {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedDetail = navParams.get('detail');
       
-    
   }
-    
-    presentModal() {
+  /*  itemTapped(event, editable) {
+    this.navCtrl.push(ItemEditModalPage, {
+      editable: editable
+    });
+  }*/
+    presentModal(editable) {
     let modal = this.modalController.create(ItemEditModalPage);
+    this.navCtrl.push(ItemEditModalPage, {
+      editable: editable
+    });
     modal.present();
   }
 }

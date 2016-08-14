@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ModalController, ViewController } from 'ionic-angular';
+import {NavController, NavParams, ModalController, ViewController} from 'ionic-angular';
+/*import {ProfileDetailPage} from '../profile-detail/profile-detail.ts';*/
 /*import { ItemEditModal } from './item-edit-modal';*/
 
 
@@ -8,12 +9,17 @@ import { ModalController, ViewController } from 'ionic-angular';
 })
 
 export class ItemEditModalPage {
-  constructor (public viewCtrl: ViewController ){
+  selectedEditable: any;
+    
+  constructor (public viewCtrl: ViewController, navParams: NavParams){
       
+    this.selectedEditable = navParams.get('editable');
+      
+    console.log(this.selectedEditable);
       
   }
     
-    dismiss() {
+  dismiss() {
     this.viewCtrl.dismiss();
   }
 
