@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {NavController, NavParams, ModalController} from 'ionic-angular';
+import {ItemEditModalPage} from '../item-edit-modal/item-edit-modal.ts';
 
 /*
   Generated class for the ProfileDetailPage page.
@@ -13,8 +14,15 @@ import {NavController, NavParams} from 'ionic-angular';
 export class ProfileDetailPage {
   selectedDetail: any;
 
-  constructor(public navCtrl: NavController, navParams: NavParams) {
+  constructor(public navCtrl: NavController, navParams: NavParams, private modalController : ModalController) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedDetail = navParams.get('detail');
+      
+    
+  }
+    
+    presentModal() {
+    let modal = this.modalController.create(ItemEditModalPage);
+    modal.present();
   }
 }

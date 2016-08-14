@@ -34,7 +34,7 @@ pages: Array<{title: string, icon: string, component: any}>;
       { title: 'Athlete Sports', icon: 'body', component: AthleteSportsPage }
     ];
     
-    t/*his.http.get('https://googledrive.com/host/0B0778NZ3pAKKUnBxVWxLN0JtYTA')
+    /*this.http.get('https://googledrive.com/host/0B0778NZ3pAKKUnBxVWxLN0JtYTA')
     .map((res) => res.json())
     .subscribe((data) => {
         

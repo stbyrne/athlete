@@ -38,10 +38,11 @@ var isRelease = argv.indexOf('--release') > -1;
 
 gulp.task('watch', ['clean'], function(done){
   runSequence(
-    ['sass', 'html', 'fonts', 'scripts'],
+    ['sass', 'html', 'fonts', 'scripts', 'json'],
     function(){
       gulpWatch('app/**/*.scss', function(){ gulp.start('sass'); });
       gulpWatch('app/**/*.html', function(){ gulp.start('html'); });
+      gulpWatch('app/**/*.json', function(){ gulp.start('json'); });
       buildBrowserify({ watch: true }).on('end', done);
     }
   );
@@ -49,7 +50,7 @@ gulp.task('watch', ['clean'], function(done){
 
 gulp.task('build', ['clean'], function(done){
   runSequence(
-    ['sass', 'html', 'fonts', 'scripts'],
+    ['sass', 'html', 'fonts', 'scripts', 'json'],
     function(){
       buildBrowserify({
         minify: isRelease,
@@ -62,6 +63,12 @@ gulp.task('build', ['clean'], function(done){
       }).on('end', done);
     }
   );
+});
+
+gulp.task('json', function() {
+    return gulp.src(['app/json/*.json'])
+        /*.pipe(gulpConcat('external-libraries.js'))*/
+        .pipe(gulp.dest('www/build/json'));
 });
 
 gulp.task('sass', buildSass);
