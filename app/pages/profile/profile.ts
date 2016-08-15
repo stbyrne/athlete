@@ -31,8 +31,7 @@ export class ProfilePage {
     .subscribe(res => {
         
         console.log(res);
-        this.profile = [];
-        this.profile.push(res);
+        this.profile = res;
         
     }, (error) => {
         

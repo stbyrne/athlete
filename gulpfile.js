@@ -42,7 +42,7 @@ gulp.task('watch', ['clean'], function(done){
     function(){
       gulpWatch('app/**/*.scss', function(){ gulp.start('sass'); });
       gulpWatch('app/**/*.html', function(){ gulp.start('html'); });
-      gulpWatch('app/**/*.json', function(){ gulp.start('json'); });
+      gulpWatch('app/**.json', function(){ gulp.start('json'); });
       buildBrowserify({ watch: true }).on('end', done);
     }
   );
@@ -67,7 +67,6 @@ gulp.task('build', ['clean'], function(done){
 
 gulp.task('json', function() {
     return gulp.src(['app/json/*.json'])
-        /*.pipe(gulpConcat('external-libraries.js'))*/
         .pipe(gulp.dest('www/build/json'));
 });
 
