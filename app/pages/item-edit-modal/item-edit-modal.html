@@ -1,13 +1,25 @@
-<!--<ion-content>-->
+<ion-content class="modal-back">
 
-    <ion-card class='popover'>
-        
-        <ion-card-content>
-            <ion-item contenteditable>
-                Edit {{selectedEditable}}
+<ion-card class='popover'>
+
+    <ion-card-content>
+        <ion-item>
+            <ion-label floating>{{selectedEditable}}</ion-label>
+            <ion-input type="text"></ion-input>
+            <ion-icon name="checkmark-circle" item-right (click)="update()"></ion-icon>
+            <ion-icon name="close" item-right (click)="dismiss()"></ion-icon>
+        </ion-item>
+        <!--<ion-item>
+            <form [ngFormModel]="authForm" (ngSubmit)="onSubmit(authForm.value)">
+                <ion-item [class.error]="!item.valid && item.touched">
+                    <ion-label floating>{{selectedEditable}}</ion-label>
+                    <ion-input type="text" value="" [ngFormControl]="item"></ion-input>
+                </ion-item>
+                <ion-icon name="checkmark-circle" type="submit" class="custom-button" [disabled]="!authForm.valid" item-right (click)="update()"></ion-icon>
                 <ion-icon name="close" item-right (click)="dismiss()"></ion-icon>
-            </ion-item>
-        </ion-card-content>
-    </ion-card>
+            </form>
+        </ion-item>-->
+    </ion-card-content>
+</ion-card>
 
-<!--</ion-content>-->
+</ion-content>

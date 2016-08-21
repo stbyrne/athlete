@@ -29,6 +29,6 @@ export class ProfileDetailPage {
     this.navCtrl.push(ItemEditModalPage, {
       editable: editable
     });
-    modal.present();
+    modal.present(editable);
   }
 }
