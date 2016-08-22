@@ -1,24 +1,35 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {AthleteDetailsPage} from '../athlete-details/athlete-details';
-
+import {Http, Response} from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Component({
-  templateUrl: 'build/pages/athlete-list/athlete-list.html'
+  templateUrl: 'build/pages/athlete-sports/athlete-sports.html'
 })
-export class AthleteListPage {
+export class AthleteSportsPage {
   selectedItem: any;
-  icons: string[];
   sports: Object[];
 
-  constructor(public navCtrl: NavController, navParams: NavParams) {
+constructor(public navCtrl: NavController, navParams: NavParams, public http: Http) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
-
-    this.sports = [
+    this.http.get('build/json/sports.json')
+    .map(res => res.json())
+    .subscribe(res => {
+        
+        console.log(res);
+        this.sports = res;
+        
+        
+        
+    }, (error) => {
+        
+        console.log('Error!');
+    });
+      
+    /*this.sports = [
         
             {
                 "type": "Sport",
@@ -37,7 +48,7 @@ export class AthleteListPage {
                 "name": "Golf",
                 "relationship": "child",
                 "experience": "Amateur"
-            }];
+            }];*/
 
           console.log(this.sports);
 

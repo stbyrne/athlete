@@ -1,0 +1,25 @@
+[{
+    "type": "Sport",
+    "name": "Soccer",
+    "icon": "football",
+    "relationship": "parent",
+    "experience": "Professional"
+}, {
+    "type": "Sport",
+    "name": "Running",
+    "icon": "contact",
+    "relationship": "child",
+    "experience": "Amateur"
+}, {
+    "type": "Sport",
+    "name": "Golf",
+    "icon": "contact",
+    "relationship": "child",
+    "experience": "Amateur"
+}, {
+    "type": "Sport",
+    "name": "Cycling",
+    "icon": "bicycle",
+    "relationship": "child",
+    "experience": "Amateur"
+}]
