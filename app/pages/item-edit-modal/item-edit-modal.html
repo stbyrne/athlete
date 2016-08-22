@@ -4,7 +4,7 @@
 
         <ion-card-content>
             <ion-item>
-                <ion-label floating>{{selectedEditable}}</ion-label>
+                <ion-label floating>Current {{selectedEditableCategory}} is {{selectedEditable}}{{selectedEditableUnit}}</ion-label>
                 <ion-input type="text"></ion-input>
                 <ion-icon name="checkmark-circle" item-right (click)="update()"></ion-icon>
                 <ion-icon name="close" item-right (click)="dismiss()"></ion-icon>

@@ -24,10 +24,12 @@ export class ProfileDetailPage {
       editable: editable
     });
   }*/
-    presentModal(editable) {
+    presentModal(editable, category, unit) {
     let modal = this.modalController.create(ItemEditModalPage);
     this.navCtrl.push(ItemEditModalPage, {
-      editable: editable
+      editable: editable,
+      category: category,
+      unit: unit
     });
     modal.present(editable);
   }

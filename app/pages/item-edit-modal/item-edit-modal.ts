@@ -7,13 +7,19 @@ import {NavController, NavParams, ModalController, ViewController} from 'ionic-a
 
 export class ItemEditModalPage {
   selectedEditable: any;
+  selectedEditableCategory: any;
+  selectedEditableUnit: any;
   /*item: any;*/
     
   constructor (public viewCtrl: ViewController, navParams: NavParams){
       
     this.selectedEditable = navParams.get('editable');
+    this.selectedEditableCategory = navParams.get('category');
+    this.selectedEditableUnit = navParams.get('unit');
       
     console.log(this.selectedEditable);
+    console.log(this.selectedEditableCategory);
+    console.log(this.selectedEditableUnit);
       
       
   }
