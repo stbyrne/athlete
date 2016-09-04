@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {NavController, NavParams, ModalController, ViewController} from 'ionic-angular';
+import {DatePicker} from 'ionic-native';
 
 @Component({
   templateUrl: 'build/pages/item-edit-modal/item-edit-modal.html'
@@ -21,6 +22,8 @@ export class ItemEditModalPage {
     console.log(this.selectedEditableCategory);
     console.log(this.selectedEditableUnit);
       
+    /*myDate: String = new Date().toISOString();
+      */
       
   }
     

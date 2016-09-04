@@ -1,16 +1,19 @@
 <ion-content class="modal-back">
-
     <ion-card class='popover'>
-
         <ion-card-content>
             <ion-item>
-                <ion-label floating>Current {{selectedEditableCategory}} is {{selectedEditable}}{{selectedEditableUnit}}</ion-label>
-                <ion-input type="text"></ion-input>
                 <ion-icon name="checkmark-circle" item-right (click)="update()"></ion-icon>
                 <ion-icon name="close" item-right (click)="dismiss()"></ion-icon>
             </ion-item>
+            <ion-item *ngIf="selectedEditableCategory==='Date'">
+                <ion-label>{{selectedEditable}}</ion-label>
+                <ion-datetime displayFormat="DD MMMM YYYY" min="1970" [(ngModel)]="myDate">
+                </ion-datetime>
+            </ion-item>
+            <ion-item *ngIf="selectedEditableCategory==='Weight' || selectedEditableCategory==='Height'">
+                <ion-label floating>Current {{selectedEditableCategory}} is {{selectedEditable}}{{selectedEditableUnit}}</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
         </ion-card-content>
     </ion-card>
-
-
 </ion-content>
