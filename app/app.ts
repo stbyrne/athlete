@@ -12,7 +12,7 @@ import {Profiles} from './providers/profiles/profiles';
 @Component({
   templateUrl: 'build/app.html'
 })
-class MyApp {
+class AthleteApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloAthletePage the root (or first) page
@@ -35,16 +35,6 @@ class MyApp {
       { title: 'Athlete Sports', icon: 'body', component: AthleteSportsPage }
     ];
     
-    /*this.http.get('https://googledrive.com/host/0B0778NZ3pAKKUnBxVWxLN0JtYTA')
-    .map((res) => res.json())
-    .subscribe((data) => {
-        
-        console.log(data);
-        
-    }, (error) => {
-        
-        console.log('Error!');
-    });*/
   }
 
   initializeApp() {
@@ -63,4 +53,4 @@ class MyApp {
   }
 }
 
-ionicBootstrap(MyApp);
+ionicBootstrap(AthleteApp, [Profiles]);

@@ -3,6 +3,7 @@ import {NavController, NavParams} from 'ionic-angular';
 import {ProfileDetailPage} from '../profile-detail/profile-detail';
 import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
+import {Profiles} from '../../providers/profiles/profiles.ts';
 
 /*
   Generated class for the ProfilePage page.
@@ -16,17 +17,19 @@ import 'rxjs/add/operator/map';
 export class ProfilePage {
     selectedItem: any;
     profile: Object[];
+    getProfiles: any;
   /*static get parameters() {
     return [[NavController]];
   }*/
 
-  constructor(public navCtrl: NavController, navParams: NavParams, public http: Http) {
+constructor(public navCtrl: NavController, navParams: NavParams, public http: Http, private profilesService: Profiles) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('detail');
       
     /*this.profile = [];*/
       
-    this.http.get('build/json/profile.json')
+    /*this.http.get('build/json/profile.json')*/
+    /*this.http.get('http://localhost:8080/api/profiles')
     .map(res => res.json())
     .subscribe(res => {
         
@@ -36,7 +39,17 @@ export class ProfilePage {
     }, (error) => {
         
         console.log('Error!');
-    });
+    });*/
+    
+    this.profile = [];
+      
+    this.profilesService.getProfiles().then((data) => {
+            console.log('Data from mongodb: ' + data);
+            this.profile = data;
+        });
+    
+    /*console.log('Profils from mongodb: ' + this.getProfiles);*/
+
     
     /*this.profile = [{
                 "type": "Profile",
