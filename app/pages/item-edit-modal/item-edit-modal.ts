@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController, NavParams, ModalController, ViewController} from 'ionic-angular';
+import {NavController, NavParams, ModalController, ViewController, Loading} from 'ionic-angular';
 import {DatePicker} from 'ionic-native';
 
 
@@ -29,32 +29,32 @@ constructor (public viewCtrl: ViewController, navParams: NavParams){
     console.log(this.selectedEditable);
     console.log(this.selectedEditableCategory);
     console.log(this.selectedEditableUnit);
-      
-    /*this.myForm = formBuilder.group({
-      editableItem: ['initial value goes here']
-    });*/
-      
+    
   }
     
     
+        
+	
+    
   updateSelectedEditable() {
-      
+
+
     console.log('From Item Edit Modal: ' + this.updatedEditable);
     console.log('New Date: ' + this.updatedDate);
-      
+
     if(this.updatedEditable){
-        this.selectedEditable = this.updatedEditable;
+    this.selectedEditable = this.updatedEditable;
     }
     if(this.updatedDate){
-        this.selectedEditable = this.updatedDate;
+    this.selectedEditable = this.updatedDate;
     } 
-     
-      
+
+
     console.log('New Editable: ' + this.selectedEditable);
-    
-          
-    this.viewCtrl.dismiss();
-    
+
+
+this.viewCtrl.dismiss();
+
   }
     
   dismissSelectedEditable() {
