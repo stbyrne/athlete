@@ -6,6 +6,7 @@ import {ProfilePage} from './pages/profile/profile';
 import {ProfileDetailPage} from './pages/profile-detail/profile-detail';
 import {AthleteSportsPage} from './pages/athlete-sports/athlete-sports';
 import {Http, Response} from '@angular/http';
+import {Profiles} from './providers/profiles/profiles';
 
 
 @Component({
@@ -16,7 +17,7 @@ class MyApp {
 
   // make HelloAthletePage the root (or first) page
   rootPage: any = HelloAthletePage;
-pages: Array<{title: string, icon: string, component: any}>;
+  pages: Array<{title: string, icon: string, component: any}>;
   
 
   constructor(

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import {NavController, NavParams, ModalController, ViewController} from 'ionic-angular';
 import {DatePicker} from 'ionic-native';
-import {jsonfile} from 'jsonfile';
-/*import {FormBuilder, Validators} from '@angular/forms';*/
+
 
 @Component({
   templateUrl: 'build/pages/item-edit-modal/item-edit-modal.html'
