@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {NavController, NavParams, ModalController, ViewController, Loading} from 'ionic-angular';
 import {DatePicker} from 'ionic-native';
+import {Profiles} from '../../providers/profiles/profiles.ts';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class ItemEditModalPage {
   return [[FormBuilder]];
 }*/
     
-constructor (public viewCtrl: ViewController, navParams: NavParams){
+constructor (public viewCtrl: ViewController, navParams: NavParams, private profilesService: Profiles){
       
     this.selectedEditable = navParams.get('editable');
     this.selectedEditableCategory = navParams.get('category');

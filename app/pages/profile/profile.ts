@@ -25,46 +25,17 @@ export class ProfilePage {
 constructor(public navCtrl: NavController, navParams: NavParams, public http: Http, private profilesService: Profiles) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('detail');
-      
-    /*this.profile = [];*/
-      
-    /*this.http.get('build/json/profile.json')*/
-    /*this.http.get('http://localhost:8080/api/profiles')
-    .map(res => res.json())
-    .subscribe(res => {
-        
-        console.log(res);
-        this.profile = res;
-        
-    }, (error) => {
-        
-        console.log('Error!');
-    });*/
-    
+   
     this.profile = [];
       
     this.profilesService.getProfiles().then((data) => {
             console.log('Data from mongodb: ' + data);
             this.profile = data;
         });
-    
-    /*console.log('Profils from mongodb: ' + this.getProfiles);*/
-
-    
-    /*this.profile = [{
-                "type": "Profile",
-                "name": "Stuart Byrne",
-                "gender": "Male",
-                "dob": "04-11-1976",
-                "weight": "80kg",
-                "height": "178cm"
-            }];*/
 
     console.log(this.profile);
 
     }
-    
-    
 
   itemTapped(event, detail) {
     this.navCtrl.push(ProfileDetailPage, {

@@ -25,10 +25,12 @@ app.use(function(req, res, next) {
 });
  
 // Models
-var Profile = mongoose.model('Profile', {
-    title: String,
-    description: String,
-    rating: Number
+var Profiles = mongoose.model('Profiles', {
+    gender: String,
+    name: String,
+    dob: String,
+    weight: Number,
+    height: Number
 });
  
 // Routes
@@ -39,7 +41,7 @@ var Profile = mongoose.model('Profile', {
         console.log("fetching profiles");
  
         // use mongoose to get all profiles in the database
-        Profile.find(function(err, profiles) {
+        Profiles.find(function(err, profiles) {
  
             // if there is an error retrieving, send the error. nothing after res.send(err) will execute
             if (err)
@@ -55,7 +57,7 @@ var Profile = mongoose.model('Profile', {
         console.log("creating profile");
  
         // create a profile, information comes from AJAX request from Ionic
-        Profile.create({
+        Profiles.create({
             name : req.body.name,
             dob : req.body.dob,
             weight: req.body.weight,
@@ -74,10 +76,25 @@ var Profile = mongoose.model('Profile', {
         });
  
     });
+
+    app.edit('/api/profiles/:profile_id', function(req, res, id, item, value) {
+ 
+        console.log("Editing profiles");
+ 
+        // use mongoose to edit profile in the database
+        Profiles.updateOne({
+            _id : id,
+            $set:{ item: value}
+        }, function(err, profile) {
+ 
+        });
+    });
+
+// .updateOne({"_id" : ObjectId("57d1aa206da8a64a2142ae2d")},{$set:{ weight: 76}})
  
     // delete a profile
     app.delete('/api/profiles/:profile_id', function(req, res) {
-        Profile.remove({
+        Profiles.remove({
             _id : req.params.profile_id
         }, function(err, profile) {
  
