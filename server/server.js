@@ -55,12 +55,13 @@ var Profiles = mongoose.model('Profiles', {
     app.post('/api/profiles', function(req, res) {
  
         console.log("creating profile");
+        
  
         /*Profiles.create({
-            name : req.body.name,
-            dob : req.body.dob,
-            weight: req.body.weight,
-            height: req.body.height,
+            name : req.params.name,
+            dob : req.params.dob,
+            weight: req.params.weight,
+            height: req.params.height,
             done : false
         }, function(err, profile) {
             if (err)
