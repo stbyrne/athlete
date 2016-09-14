@@ -13,23 +13,27 @@ import {ItemEditModalPage} from '../item-edit-modal/item-edit-modal.ts';
 })
 export class ProfileDetailPage {
   selectedDetail: any;
+  selectedDetailId: any;
 
   constructor(public navCtrl: NavController, navParams: NavParams, private modalController : ModalController) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedDetail = navParams.get('detail');
+    this.selectedDetailId = navParams.get('id');
       
+    console.log("ID: " + this.selectedDetailId);
   }
   /*  itemTapped(event, editable) {
     this.navCtrl.push(ItemEditModalPage, {
       editable: editable
     });
   }*/
-    presentModal(editable, category, unit) {
+    presentModal(editable, category, unit, id) {
     let modal = this.modalController.create(ItemEditModalPage);
     this.navCtrl.push(ItemEditModalPage, {
       editable: editable,
       category: category,
-      unit: unit
+      unit: unit,
+      id: this.selectedDetailId
     });
     modal.present(editable);
   }

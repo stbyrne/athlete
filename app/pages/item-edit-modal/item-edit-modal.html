@@ -2,15 +2,15 @@
     <ion-card class='popover'>
         <ion-card-content>
             <ion-item>
-                <ion-icon name="checkmark-circle" item-right (click)="updateSelectedEditable()"></ion-icon>
+                <ion-icon name="checkmark-circle" item-right (click)="updateSelectedEditable(selectedEditableId, selectedEditableCategory, updatedEditable)"></ion-icon>
                 <ion-icon name="close" item-right (click)="dismissSelectedEditable()"></ion-icon>
             </ion-item>
-            <ion-item *ngIf="selectedEditableCategory==='Date'">
+            <ion-item *ngIf="selectedEditableCategory==='dob'">
                 <ion-datetime displayFormat="DD MMMM YYYY" min="1970" [(ngModel)]="updatedDate">
                 </ion-datetime>
                 <ion-label>{{selectedEditable}}</ion-label>
             </ion-item>
-            <ion-item *ngIf="selectedEditableCategory==='Weight' || selectedEditableCategory==='Height'">
+            <ion-item *ngIf="selectedEditableCategory==='weight' || selectedEditableCategory==='height'">
                 <ion-label floating>Current {{selectedEditableCategory}} is {{selectedEditable}}{{selectedEditableUnit}}</ion-label>
                 <ion-input type="text" [(ngModel)]="updatedEditable"></ion-input>
             </ion-item>

@@ -10,7 +10,7 @@
 <ion-content>
     
     <ion-list>
-    <button ion-item *ngFor="let detail of profile" (click)="itemTapped($event, detail)">
+    <button ion-item *ngFor="let detail of profile" (click)="itemTapped($event, detail, profile[0]._id)">
       <ion-icon name="contact"></ion-icon>
       {{detail.name}}
       <div class="item-note" item-right>

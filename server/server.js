@@ -56,8 +56,7 @@ var Profiles = mongoose.model('Profiles', {
  
         console.log("creating profile");
  
-        // create a profile, information comes from AJAX request from Ionic
-        Profiles.create({
+        /*Profiles.create({
             name : req.body.name,
             dob : req.body.dob,
             weight: req.body.weight,
@@ -67,28 +66,31 @@ var Profiles = mongoose.model('Profiles', {
             if (err)
                 res.send(err);
  
-            // get and return all the profiles after you create another
-            Profile.find(function(err, profiles) {
+            Profiles.find(function(err, profiles) {
                 if (err)
                     res.send(err)
                 res.json(profiles);
             });
-        });
+        });*/
  
     });
 
-    app.edit('/api/profiles/:profile_id', function(req, res, id, item, value) {
+    app.put('/api/profiles', function(req, res) {
  
-        console.log("Editing profiles");
+        console.log("updating profile");
+        
+        /*console.log("ID from Server: " + req.params._id);*/
  
-        // use mongoose to edit profile in the database
-        Profiles.updateOne({
-            _id : id,
-            $set:{ item: value}
+        // create a profile, information comes from AJAX request from Ionic
+        /*Profiles.updateOne({
+            _id : req.params.profile_id},
+                           {$set:{ req.params.category: req.params.value}
         }, function(err, profile) {
  
-        });
+        });;*/
+ 
     });
+
 
 // .updateOne({"_id" : ObjectId("57d1aa206da8a64a2142ae2d")},{$set:{ weight: 76}})
  

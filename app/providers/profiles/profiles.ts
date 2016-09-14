@@ -6,6 +6,9 @@ import 'rxjs/add/operator/map';
 export class Profiles {
 
   data: any;
+  id:any;
+  category: any;
+  value: any;
 
   constructor(private http: Http) {
     this.data = null;
@@ -26,6 +29,28 @@ export class Profiles {
           resolve(this.data);
         });
     });
+
+  }
+    
+  updateProfiles(id, category, value){
+
+    console.log("You are updating Profile ID: " + id + " with the new value of " + value + " for your " + category + "!");
+      
+      
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+      
+    var object = {params:{
+                    "_id": id,
+                    [category]: value
+    }};
+      
+      console.log("From Profiles.ts: " + object);
+
+    this.http.post('http://localhost:8080/api/profiles', JSON.stringify(object), {headers: headers})
+      .subscribe(res => {
+        console.log(res.json());
+      });   
 
   }
 

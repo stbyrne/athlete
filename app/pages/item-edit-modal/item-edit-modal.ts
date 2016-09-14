@@ -13,6 +13,7 @@ export class ItemEditModalPage {
   selectedEditable: any;
   selectedEditableCategory: any;
   selectedEditableUnit: any;
+  selectedEditableId: any;
   updatedDate : any;
   updatedEditable : string;
   myForm: any;
@@ -26,35 +27,29 @@ constructor (public viewCtrl: ViewController, navParams: NavParams, private prof
     this.selectedEditable = navParams.get('editable');
     this.selectedEditableCategory = navParams.get('category');
     this.selectedEditableUnit = navParams.get('unit');
+    this.selectedEditableId = navParams.get('id');
     
     console.log(this.selectedEditable);
     console.log(this.selectedEditableCategory);
     console.log(this.selectedEditableUnit);
+    console.log(this.selectedEditableId);
     
   }
     
-    
-        
-	
-    
-  updateSelectedEditable() {
+  updateSelectedEditable(id, category, value) {
 
 
     console.log('From Item Edit Modal: ' + this.updatedEditable);
-    console.log('New Date: ' + this.updatedDate);
-
-    if(this.updatedEditable){
-    this.selectedEditable = this.updatedEditable;
-    }
-    if(this.updatedDate){
-    this.selectedEditable = this.updatedDate;
-    } 
+    console.log('New Date: ' + this.updatedDate); 
+    console.log("Updating " + category + " with the value " + value); 
 
 
     console.log('New Editable: ' + this.selectedEditable);
+      
+    this.profilesService.updateProfiles(id, category, value);
 
 
-this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss();
 
   }
     

@@ -31,15 +31,19 @@ constructor(public navCtrl: NavController, navParams: NavParams, public http: Ht
     this.profilesService.getProfiles().then((data) => {
             console.log('Data from mongodb: ' + data);
             this.profile = data;
-        });
+            this.profile.forEach(function(athlete){
+                console.log(athlete);
+            });
+    });
 
-    console.log(this.profile);
+    
 
     }
 
-  itemTapped(event, detail) {
+  itemTapped(event, detail, id) {
     this.navCtrl.push(ProfileDetailPage, {
-      detail: detail
+        detail: detail,
+        id: id
     });
   }
 }
