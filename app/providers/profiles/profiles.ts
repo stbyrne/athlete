@@ -40,14 +40,14 @@ export class Profiles {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
       
-    var object = {params:{
+    var object = {
                     "_id": id,
                     [category]: value
-    }};
+    };
       
       console.log("From Profiles.ts: " + object);
 
-    this.http.post('http://localhost:8080/api/profiles', JSON.stringify(object), {headers: headers})
+    this.http.put('http://localhost:8080/api/profiles/' + id, JSON.stringify(object), {headers: headers})
       .subscribe(res => {
         console.log(res.json());
       });   
