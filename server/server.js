@@ -75,7 +75,7 @@ var Profiles = mongoose.model('Profiles', {
  
     });
 
-    app.put('/api/profiles/_id', function(req, res, next) {
+    app.put('/api/profiles/:_id', function(req, res, next) {
  
         console.log("updating profile");
         
@@ -83,25 +83,30 @@ var Profiles = mongoose.model('Profiles', {
             body = req.body;
         
         console.log("ID: " + id);
+        console.log("Category: " + category);
   
         Profiles.findById(id, function(error, profile) {
-            // Handle the error using the Express error middleware
             if(error) return next(error);
 
-            // Render not found error
             if(!profile) {
               return res.status(404).json({
                 message: 'Profile with id ' + id + ' can not be found.'
               });
             }
 
-            // Update the course model
             profile.update(body, function(error, profile) {
               if(error) return next(error);
 
               res.json(profile);
             });
         });
+        
+        /*Profiles.findAndModify({
+            query: {_id: "mongojs.ObjectId(id)"},
+            update: {$set: body},
+            new: true}, function (err, doc) {
+            res.json(doc);
+        });*/
  
     });
 
